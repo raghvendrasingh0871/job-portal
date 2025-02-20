@@ -6,8 +6,7 @@ dotenv.config();
 const PORT=process.env.PORT;
 
 app.get('/',(req,res)=>{
-    // res.send();
-    res.next;
+    res.send();
 })
 app.listen(PORT,()=>{
 
