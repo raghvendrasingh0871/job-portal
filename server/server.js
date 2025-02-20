@@ -5,6 +5,10 @@ const app=express();
 dotenv.config();
 const PORT=process.env.PORT;
 
+app.get('/',(req,res)=>{
+    // res.send();
+    res.next;
+})
 app.listen(PORT,()=>{
 
 });
