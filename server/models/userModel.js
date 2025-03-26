@@ -14,6 +14,10 @@ const userSchema=new mongoose.Schema({
     password:{
         type: String,
         required: [true, "password is required"]
+    },
+    location:{
+        type: String,
+        default: India
     }
 },{timestamp:true});
 export default mongoose.model('User', userSchema);
