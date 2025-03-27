@@ -1,12 +1,16 @@
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+dotenv.config();
+
 const userAuth = async (req,res,next) =>{
     const authHeader = req.headers.authorization;
     if(!authHeader || !authHeader.startsWith("Bearer")){
         next("Auth Failed");
     }
-    const token = authHeader.split(' ')[1];
+    
     try{
-        const verified = jwt.verify(token);
+        const token = authHeader.split(' ')[1];
+        const verified = jwt.verify(token,process.env.JWT_SECRET);
         req.user = verified;
         next();
     }
